@@ -9,3 +9,7 @@ export interface LocationParsed{
   name: string,
   value: number,
 }
+
+export interface PapaparseResult{
+  data: string[][]
+}
