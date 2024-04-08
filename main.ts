@@ -11,14 +11,12 @@ const loggerFilePath = join(__dirname,  "log", "logProgram.log");
 
 function main() {
   /* 
-  ho deciso di utilizzare una mappa: una struttura pratica e efficiente utile anche per
-  grandi quantità di dati. I risultati vengono tutti memorizzati in RAM, anche se sono tanti
-  non occupa molta memoria, se dovesse comunque essere un problema, un eventuale cambio di
-  codice (non la chiamo miglioria perché libera la RAM ma a discapito delle prestazioni del programma) è
-  memorizzare il tutto in file separati sull'HD.
-  Siccome le mappe sono strutture simili a dizionari, ovvero memorizzate come coppia chiave valore,
-  offrono delle funzioni per capire se esiste già un oggetto con la stessa chiave,
-  una funzionalità utile per questo progetto e che userò in seguito.
+  I've decided to use a map: a practical and efficient structure also suitable for large amounts of data.
+  All results are stored in RAM, even if they are many, it doesn't take up much memory. If it were still
+  a problem, a potential code change (I don't call it an improvement because it frees up RAM but at the
+  expense of program performance) is to store everything in separate files on the hard drive. 
+  Since maps are structures similar to dictionaries, i.e., stored as key-value pairs, they offer functions
+  to understand if an object with the same key already exists, a useful feature for this project and one that I will use later.
   */
   let results: Map<string, LocationObj> = new Map();
   const logger: LogHelper = new LogHelper(loggerFilePath);

@@ -4,37 +4,35 @@ import { truncateSync } from "fs";
 
 export class LogHelper {
   /*
-    Questa classe racchiude le funzionalità utili per il logging,
-    tra cui il delete del contenuto del file e la creazione dello stream
-    attraverso l'utilizzo della libreria winston 
+    This class encapsulates useful logging functionalities, including file content deletion
+    and stream creation using the Winston library.
 
-    PROBLEMA DA CONSIDERARE: in realtà, non era richiesto un logger,
-    ho voluto crearlo perché il terminale quando ha a che fare con tanti
-    log potrebbe tagliare il contenuto (come è successo a me), 
-    però non è nemmeno questo il modo completo per operare su tantissimi file, infatti,
-    se il file diventa troppo grande potrebbe essere utile considerare come miglioria il
-    creare diversi file ogni ad esempio 10000 righe in automatico
+    PROBLEM TO CONSIDER: In reality, a logger wasn't required. I decided to create one because
+    the terminal might cut off the content when dealing with many logs (as it happened to me).
+    However, this isn't the complete solution for operating on a large number of files. In fact,
+    if the file becomes too large, it might be useful to consider creating separate files automatically,
+    for example, every 10000 lines, as an improvement.
   */
   loggerFilePath: string;
   constructor(loggerFilePath: string) {
     this.loggerFilePath = loggerFilePath;
-    this.deleteContent(); // ogni volta che viene avviato lo script, viene svuotato il file
+    this.deleteContent(); // Every time the script is run, the file is emptied.
   }
 
   deleteContent = () => {
-    // questa funzione cancella l'intero contenuto del file.log
+    // This function deletes the entire content of the file.log.
     try {
       truncateSync(this.loggerFilePath, 0);
     } catch (error:any) {
       console.log(error);
       if(error.code === 'ENOENT'){
-        console.log("file not found");
+        console.error("log file not found: will be created");
       }
     }
   };
 
   /**
-   * crea lo stream del logger attraverso la libreria winston e lo restituisce
+   * It creates the logger stream using the Winston library and returns it.
    * @returns winston.Logger 
    * */
   createLogger = (): Logger => createLogger({
