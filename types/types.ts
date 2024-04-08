@@ -5,11 +5,6 @@ export interface LocationObj{
   countDuplicates: number,
 }
 
-export interface LocationParsed{
-  name: string,
-  value: number,
-}
-
 export interface PapaparseResult{
   data: string[][]
 }
