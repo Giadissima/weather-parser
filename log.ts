@@ -9,7 +9,14 @@ export class LogHelper {
   }
 
   truncateLogger = () => {
-    truncateSync(this.loggerFilePath, 0);
+    try {
+      truncateSync(this.loggerFilePath, 0);
+    } catch (error:any) {
+      console.log(error);
+      if(error.code === 'ENOENT'){
+        console.log("file not found");
+      }
+    }
   };
 
   createLogger = () => {

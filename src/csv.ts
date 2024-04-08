@@ -15,7 +15,7 @@ export class CsvHelper {
     results: Map<string, LocationObj>,
     csvLogger: Logger,
     logger: Logger,
-    filePath: string = join("data", "weather_stations.csv")
+    filePath: string = join(__dirname, "..", "data", "weather_stations.csv")
   ) {
     this.results = results;
     this.csvLogger = csvLogger;
