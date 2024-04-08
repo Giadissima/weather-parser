@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node main.ts"
+    "start": "npx ts-node main.ts"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +12,8 @@
     "papaparse": "^5.4.1"
   },
   "devDependencies": {
-    "@types/papaparse": "^5.3.14"
+    "@types/papaparse": "^5.3.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.4"
   }
 }
