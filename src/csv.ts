@@ -2,6 +2,7 @@ import { LocationObj, PapaparseResult } from "../types/types";
 import { createReadStream, existsSync } from "fs";
 
 import { Logger } from "winston";
+import { createPath } from "../utils";
 import { join } from "path";
 import { parse } from "papaparse";
 
@@ -13,7 +14,7 @@ export class CsvHelper {
   constructor(
     results: Map<string, LocationObj>,
     logger: Logger,
-    filePath: string = join(__dirname, "..", "data", "weather_stations.csv")
+    filePath: string = createPath(join("data", "weather_stations.csv"))
   ) {
     this.results = results;
     this.logger = logger;
@@ -33,7 +34,7 @@ export class CsvHelper {
     console.time('Measure time')
     
     if(!existsSync(this.filePath)){
-      console.error("no such file in path: ", this.filePath, "make sure to write the correct path");
+      console.error("no such csv file in path: ", this.filePath, "make sure to write the correct path");
       return;
     }
 
@@ -53,7 +54,6 @@ export class CsvHelper {
       },
     });
   }
-
 
   /**
   * @async

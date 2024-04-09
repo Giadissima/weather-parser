@@ -27,6 +27,9 @@ export class LogHelper {
       console.log(error);
       if(error.code === 'ENOENT'){
         console.error("log file not found: will be created");
+      } else {
+        // Gestisci o registra altri tipi di errori in modo diverso
+        console.error("An unexpected error occurred:", error);
       }
     }
   };

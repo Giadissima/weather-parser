@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node main.ts"
+    "start": "npx ts-node main.ts",
+    "build": "tsc --downlevelIteration",
+    "exe": "npm run build && pkg --config package.json -o executables/weather-parser build/main.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +16,15 @@
   },
   "devDependencies": {
     "@types/papaparse": "^5.3.14",
+    "pkg": "^5.8.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.4"
+  },
+  "pkg": {
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x64"
+    ]
   }
 }

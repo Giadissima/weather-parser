@@ -2,9 +2,10 @@ import { CsvHelper } from "./src/csv";
 import { LocationObj } from "./types/types";
 import { LogHelper } from "./log";
 import { Logger } from "winston";
+import { createPath } from "./utils";
 import { join } from "path";
 
-const loggerFilePath = join(__dirname,  "log", "logProgram.log");
+const loggerFilePath = createPath(join("log", "logProgram.log"));
 
 function main() {
   /* 
