@@ -18,13 +18,7 @@ npm run start
 
 ## Download executable
 
-<div>
-<a href="https://github.com/Giadissima/SortImages/releases/download/1.0.1/windows.zip" target="_blank"><img src="assets/windows_icon.png" height=50/></a>
-<img src="assets/spaced.png" width=20/>
-<a href="https://github.com/Giadissima/SortImages/releases/download/1.0.1/linux.zip" target="_blank"><img src="assets/linux_icon.png" height=50/></a>
-<img src="assets/spaced.png" width=20/>
-<a href="https://github.com/Giadissima/SortImages/releases/download/1.0.1/macos.zip" target="_blank"><img src="assets/mac_icon.png" height=50/></a>
-</div>
+<a href="https://github.com/Giadissima/weather-parser/releases/download/1.0/executables.rar" target="_blank">Click here to download</a>
 
 ## Make executable
 
@@ -32,4 +26,4 @@ npm run start
 npm run exe
 ```
 
-open your OS'exe generated
+Now you can open your OS'exe generated in executables folder.
