@@ -24,7 +24,6 @@ export class LogHelper {
     try {
       truncateSync(this.loggerFilePath, 0);
     } catch (error:any) {
-      console.log(error);
       if(error.code === 'ENOENT'){
         console.error("log file not found: will be created");
       } else {
