@@ -6,9 +6,6 @@ import { join } from "path";
 
 const loggerFilePath = join(__dirname,  "log", "logProgram.log");
 
-// TODO: prendere il tempo iniziale dell'esecuzione
-// TODO: stampare quanto ci ha messo
-
 function main() {
   /* 
   I've decided to use a map: a practical and efficient structure also suitable for large amounts of data.
@@ -21,7 +18,10 @@ function main() {
   let results: Map<string, LocationObj> = new Map();
   const logger: LogHelper = new LogHelper(loggerFilePath);
   const LoggerStream: Logger = logger.createLogger();
-  new CsvHelper(results, LoggerStream);
+  
+  /* The parameter `process.argv[2]` represents the command-line input. If it is not passed, it will be `undefined`, and the
+  class will take the default path that I have defined (by default, I have placed a CSV file in the `data` folder). */
+  new CsvHelper(results, LoggerStream, process.argv[2]);
 }
 
 main();

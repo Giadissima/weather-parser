@@ -1,7 +1,7 @@
 import { LocationObj, PapaparseResult } from "../types/types";
+import { createReadStream, existsSync } from "fs";
 
 import { Logger } from "winston";
-import { createReadStream } from "fs";
 import { join } from "path";
 import { parse } from "papaparse";
 
@@ -31,6 +31,12 @@ export class CsvHelper {
   */
   readCsv() {
     console.time('Measure time')
+    
+    if(!existsSync(this.filePath)){
+      console.error("no such file in path: ", this.filePath, "make sure to write the correct path");
+      return;
+    }
+
     parse(createReadStream(this.filePath), {
       chunk: async (results: PapaparseResult) => {
         // With the `chunk` option, the parser takes a specified number of bytes and
